@@ -1,0 +1,25 @@
+{
+  "name": "a1vy",
+  "version": "0.0.1",
+  "author": "A1vy",
+  "license": "MIT",
+  "description": "I help development by doing things",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omrilotan/a1vy.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "./index.js"
+  },
+  "bin": {
+    "a1vy": "./index.js"
+  },
+  "publishConfig": {
+    "tag": "latest",
+    "tag-version-prefix": ""
+  },
+  "dependencies": {
+    "inquirer": "^4.0.0"
+  }
+}
