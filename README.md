@@ -1,4 +1,4 @@
-# Alvy
+# A1vy
 
 I help development by doing things
 
@@ -8,4 +8,5 @@ npx a1vy
 ```
 
 ### Simple UDP server listener
-Listen to a port and print out the requests
+- Add default repository files
+- Listen to a port and print out the requests
