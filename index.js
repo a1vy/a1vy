@@ -54,3 +54,5 @@ function caseInsensitiveSortByName(a, b) {
 
     return 0;
 }
+
+require('./lib/check-for-updates')(require('./package.json'));

@@ -7,6 +7,13 @@ Use:
 npx a1vy
 ```
 
-### Simple UDP server listener
-- Add default repository files
-- Listen to a port and print out the requests
+Or install locally
+```
+npm i -g a1vy
+```
+
+### Available programs
+- ❯ Add bootstrap files
+- ❯ Simple UDP server listener
+- ❯ Static file server
+- ❯ Tunnel traffic
