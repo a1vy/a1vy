@@ -1,3 +1,5 @@
+require('colors');
+const boxt = require('boxt');
 const { promisify } = require('util');
 const { readdir, readFile, writeFile } = require('fs');
 
@@ -27,13 +29,25 @@ module.exports = async () => {
             },
         ]);
 
-    answers.files.forEach(file => {
-        read(`${__dirname}/files/${file}`)
+    const promises = answers.files.map(file => {
+        return read(`${__dirname}/files/${file}`)
             .then(data => write(`./${file}`, data))
-            .then(() => console.log(`${file} has beed written`))
+            .then(() => file)
             .catch(error => {
                 throw error;
             });
-    });
+        });
+
+    Promise.all(promises)
+        .then((results) => {
+            console.log(boxt([
+                'Files have been written:'.blue.bold,
+                results.join(', ').yellow,
+            ].join('\n'), {align: 'start'}));
+
+            process.exit();
+        }).catch(error => {
+            throw error;
+        });
 
 };
