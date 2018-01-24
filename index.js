@@ -1,10 +1,20 @@
 #!/usr/bin/env node
 
+require('colors');
 const { readdir } = require('fs');
 const { promisify } = require('util');
 const ls = promisify(readdir);
-
 const inquirer = require('inquirer');
+const boxt = require('boxt');
+const { name, version } = require('./package.json');
+
+console.log(
+    boxt(
+`🤖  ${'Welcome, human'.bold}.
+You are running ${name.yellow} version ${version.yellow}`,
+        {color: 'gray', theme: 'round', align: 'left'}
+    )
+);
 
 try {
     init();
