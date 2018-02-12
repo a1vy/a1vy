@@ -18,6 +18,7 @@ module.exports = async () => {
         ])
         .then(answers => require('./service')(answers))
         .catch(error => {
+            console.error(error);
             throw error;
         });
 };
