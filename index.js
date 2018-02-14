@@ -16,6 +16,11 @@ You are running ${name.yellow} version ${version.yellow}`,
     )
 );
 
+process.on('unhandledRejection', (reason, promise) => {
+    console.log('Unhandled Rejection at:', reason.stack || reason)
+    console.error(reason);
+});
+
 try {
     init();
 } catch (error) {
@@ -65,4 +70,4 @@ function caseInsensitiveSortByName(a, b) {
     return 0;
 }
 
-require('./lib/check-for-updates')(require('./package.json'));
+require('upgradable')(require('./package.json'));
