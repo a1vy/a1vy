@@ -11,7 +11,7 @@ module.exports = ({port = 8125, host = '127.0.0.1'} = {}) => {
     server.on('message', (message, remote) => {
         const { address, port } = remote;
 
-        console.log(`${address}:${port} - ${message}`)
+        console.log(`${address}:${port}\n${require('../../lib/pretty-json')(message)}\n\n`)
     });
 
     server.bind(port, host);

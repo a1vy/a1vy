@@ -14,6 +14,7 @@ npm i -g a1vy
 
 ### Available programs
 - ❯ Add bootstrap files
-- ❯ Simple UDP server listener
+- ❯ Express server: logs headers and body
+- ❯ Simple UDP server listener: logs messages
 - ❯ Static file server
 - ❯ Tunnel traffic

@@ -12,7 +12,7 @@ module.exports = async ({host, port} = {}) => {
             '\n\n',
             '> Body'.bold,
             '\n',
-            request.body
+            require('../../lib/pretty-json')(request.body)
         );
 
         response.status(203).end();
