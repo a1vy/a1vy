@@ -16,6 +16,7 @@ npm i -g a1vy
 
 ### Available programs
 - ❯ Add bootstrap files
+- ❯ Check for updates in NPM dependencies (interactive)
 - ❯ Express server: logs headers and body
 - ❯ Simple UDP server listener: logs messages
 - ❯ Static file server
