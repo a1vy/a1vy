@@ -9,12 +9,21 @@ const write = promisify(writeFile);
 
 const inquirer = require('inquirer');
 
+const fixFilename = file => file.replace(/^__/, '.');
+const sorter = (a, b) => {
+    a = fixFilename(a).toLowerCase();
+    b = fixFilename(b).toLowerCase();
+
+    return a < b ? -1 : b < a ? 1 : 0;
+};
+
 module.exports = async () => {
 
     const files = await ls(`${__dirname}/files`);
 
-    const choices = files.map(item => ({
-        name: item,
+    const choices = files.sort(sorter).map(item => ({
+        name: fixFilename(item),
+        value: item,
         checked: false,
     })
     );
@@ -31,8 +40,8 @@ module.exports = async () => {
 
     const promises = answers.files.map(file => {
         return read(`${__dirname}/files/${file}`)
-            .then(data => write(`./${file}`, data))
-            .then(() => file)
+            .then(data => write(`./${fixFilename(file)}`, data))
+            .then(() => fixFilename(file))
             .catch(error => {
                 throw error;
             });
