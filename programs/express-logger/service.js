@@ -6,17 +6,18 @@ const cors = require('cors');
 module.exports = async ({host, port} = {}) => {
     const app = express();
 
-    app.use(cors());
+    app.use(cors({preflightContinue: true}));
     app.use(json());
     app.use('*', (request, response) => {
+        const data = {
+            Headers: request.headers,
+            Body: request.body,
+        };
+
         console.log(
-            '> Headers'.bold,
-            '\n',
-            request.headers,
-            '\n\n',
-            '> Body'.bold,
-            '\n',
-            require('../../lib/pretty-json')(JSON.stringify(request.body))
+            Object.entries(data).map(
+                ([key, value]) => `> ${key.bold}\n${printable(value)}`
+            ).join('\n\n')
         );
 
         response.status(201).end();
@@ -27,3 +28,5 @@ module.exports = async ({host, port} = {}) => {
         console.log(`Static file server running:\nhttp://${host}:${port}\nCTRL + C to shutdown`);
     });
 };
+
+const printable = (data) => require('../../lib/pretty-json')(JSON.stringify(data));
