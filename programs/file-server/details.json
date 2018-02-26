@@ -1,3 +1,4 @@
 {
-  "name": "Static file server"
+  "name": "File Server",
+  "desc": "Run a static file server from current directory"
 }

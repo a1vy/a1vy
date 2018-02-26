@@ -1,3 +1,4 @@
 {
-  "name": "Simple UDP server listener: logs messages"
+  "name": "UDP Logger",
+  "desc": "Log incoming messages on a UDP server"
 }

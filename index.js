@@ -35,11 +35,12 @@ async function init() {
 
     const choices = programs.map((value, index) => {
         const {
-            name
+            name,
+            desc,
         } = require(`./programs/${value}/details.json`);
 
         return {
-            name,
+            name: `${name.bold} - ${desc}`,
             value,
         };
     }).sort(caseInsensitiveSortByName);

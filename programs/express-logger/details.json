@@ -1,3 +1,4 @@
 {
-  "name": "Express server: logs headers and body"
+  "name": "Express Logger",
+  "desc": "Run an Express server, log headers and body"
 }
