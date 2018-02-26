@@ -1,10 +1,14 @@
 require('colors');
 const express = require('express');
+const {json} = require('body-parser');
+const cors = require('cors');
 
 module.exports = async ({host, port} = {}) => {
     const app = express();
 
-    app.get('/', (request, response) => {
+    app.use(cors());
+    app.use(json());
+    app.use('*', (request, response) => {
         console.log(
             '> Headers'.bold,
             '\n',
@@ -12,10 +16,10 @@ module.exports = async ({host, port} = {}) => {
             '\n\n',
             '> Body'.bold,
             '\n',
-            require('../../lib/pretty-json')(request.body)
+            require('../../lib/pretty-json')(JSON.stringify(request.body))
         );
 
-        response.status(203).end();
+        response.status(201).end();
     })
 
 
