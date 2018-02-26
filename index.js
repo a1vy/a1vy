@@ -11,14 +11,6 @@ const { clear } = require('./lib/terminal');
 
 clear();
 
-console.log(
-    boxt(
-`🤖  ${'Welcome, human'.bold}.
-You are running ${name.yellow} version ${version.yellow}`,
-        {color: 'gray', theme: 'round', align: 'left'}
-    )
-);
-
 process.on('unhandledRejection', (reason, promise) => {
     console.log('Unhandled Rejection at:', reason.stack || reason)
     console.error(reason);
@@ -31,6 +23,25 @@ try {
 }
 
 async function init() {
+
+    const greeting = await require('./lib/greet')();
+
+
+    console.log(
+    `
+         ${greeting.bold}
+        ─────┬─${'─'.repeat(Math.max(greeting.length - 5, 1))}
+    ╭──────╮ ╯
+    │ ◜   ◝│
+    │  ☉ ☉ │
+    ├┬┬┬┬┬┬┤
+    ├┴┴┴┴┴┴┤
+    ╰─╮  ╭─╯
+    ╭─╯  ╰─╮  ${`${name} ${version}`.underline.yellow}
+
+    `
+    );
+
     const programs = await ls(`${__dirname}/programs`);
 
     const choices = programs.map((value, index) => {

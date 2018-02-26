@@ -1,4 +1,4 @@
-# A1vy [![NPM](https://nodei.co/npm/a1vy.png?compact=true)](https://www.npmjs.com/package/a1vy)
+# A1vy [![](https://circleci.com/gh/omrilotan/a1vy.svg?style=svg)](https://circleci.com/gh/omrilotan/a1vy) [![](https://nodei.co/npm/a1vy.png?compact=true)](https://www.npmjs.com/package/a1vy)
 
 ## I help development by doing things
 
@@ -7,6 +7,8 @@
 3. **Do things**
 
 - **Try, or use on someone else's machine**: `npx a1vy`
+
+![](https://user-images.githubusercontent.com/516342/36719819-d8cd2576-1bae-11e8-88a5-67e8bdf134e2.png)
 
 ### Things I do
 
