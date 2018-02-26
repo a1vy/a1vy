@@ -7,6 +7,9 @@ const ls = promisify(readdir);
 const inquirer = require('inquirer');
 const boxt = require('boxt');
 const { name, version } = require('./package.json');
+const { clear } = require('./lib/terminal');
+
+clear();
 
 console.log(
     boxt(
