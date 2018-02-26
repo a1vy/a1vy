@@ -1,0 +1,38 @@
+defaults: &defaults
+  working_directory: ~/app
+  docker:
+    - image: circleci/node:8.9.0
+
+version: 2
+jobs:
+  publish:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Install dependencies
+          command: npm i
+      - run:
+          name: Set NPM token
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+      - run:
+          name: Publish to NPM
+          command: npx published
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+
+workflows:
+  version: 2
+  ci-cd:
+    jobs:
+      - publish
+
+experimental:
+  notify:
+    branches:
+      only:
+        - master
