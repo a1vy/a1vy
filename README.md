@@ -1,10 +1,8 @@
-# A1vy
-
-![](https://user-images.githubusercontent.com/516342/36422849-71325868-1646-11e8-864c-28bbdc1f9b8e.png)
+# A1vy [![NPM](https://nodei.co/npm/a1vy.png?compact=true)](https://www.npmjs.com/package/a1vy)
 
 #### I help development by doing things
 
-[![NPM](https://nodei.co/npm/a1vy.png?compact=true)](https://www.npmjs.com/package/a1vy)
+![](https://user-images.githubusercontent.com/516342/36422849-71325868-1646-11e8-864c-28bbdc1f9b8e.png)
 
 Use:
 ```
