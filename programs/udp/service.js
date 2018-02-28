@@ -1,18 +1,21 @@
-module.exports = ({port = 8125, host = '127.0.0.1'} = {}) => {
+module.exports = ({port = 8125, host = '127.0.0.1', encoding = 'utf8'} = {}) => {
     const dgram = require('dgram'); // Using https://nodejs.org/api/dgram.html
-    const server = dgram.createSocket('udp4');
+    const socket = dgram.createSocket('udp4');
 
-    server.on('listening', () => {
-        const { address, port } = server.address();
+    socket.on('listening', () => {
+        const { address, port } = socket.address();
 
-        console.log(`UDP Server listening on ${address}:${port}\nCTRL + C to shutdown`);
+        console.log(`UDP Socket listening on ${address}:${port}\nCTRL + C to shutdown`);
     });
 
-    server.on('message', (message, remote) => {
+    socket.on('message', (message, remote) => {
         const { address, port } = remote;
+        message = require('../../lib/pretty-json')(message.toString(encoding));
 
-        console.log(`${address}:${port}\n${require('../../lib/pretty-json')(message)}\n\n`)
+        console.log(`Message sent from ${address}:${port}`);
+        console.log(message);
+        console.log('\n--------------------------------------\n\n');
     });
 
-    server.bind(port, host);
+    socket.bind(port, host);
 };

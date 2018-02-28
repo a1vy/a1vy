@@ -1,6 +1,6 @@
 {
   "name": "a1vy",
-  "version": "0.0.23",
+  "version": "0.0.24",
   "author": "A1vy",
   "license": "MIT",
   "description": "I help development by doing things",
@@ -16,7 +16,7 @@
     "a1vy": "./index.js"
   },
   "publishConfig": {
-    "tag": "latest",
+    "tag": "next",
     "tag-version-prefix": ""
   },
   "preferGlobal": true,
