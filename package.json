@@ -1,6 +1,6 @@
 {
   "name": "a1vy",
-  "version": "0.0.25",
+  "version": "0.0.26",
   "author": "A1vy",
   "license": "MIT",
   "description": "I help development by doing things",
@@ -21,12 +21,12 @@
   },
   "preferGlobal": true,
   "dependencies": {
-    "boxt": "^0.2.0",
+    "boxt": "^0.3.0",
     "colors": "^1.1.2",
     "cors": "^2.8.4",
     "express": "^4.16.2",
     "inquirer": "^5.1.0",
-    "npm": "^5.6.0",
+    "npm": "^5.7.1",
     "npm-check": "^5.5.2",
     "upgradable": "0.0.3"
   }
